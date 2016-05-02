@@ -73,7 +73,7 @@ public class OverworldManager : MonoBehaviour {
                 {
                     GameObject TileBlock = Instantiate(Tile, new Vector3(x, y), Quaternion.identity) as GameObject;
                     TileBlock.transform.parent = GameObject.Find("OverworldManager").transform;
-                    TileBlock.GetComponent<TileObj>().AssingSprite(2);
+                    TileBlock.GetComponent<TileObj>().AssingSprite(6);
                 }
             }
         }
@@ -89,11 +89,13 @@ public class OverworldManager : MonoBehaviour {
                 {
                     GameObject TileBlock_Wall = Instantiate(Tile_Wall, new Vector3(x-1, y-1), Quaternion.identity) as GameObject;
                     TileBlock_Wall.transform.parent = GameObject.Find("OverworldManager").transform;
-                    TileBlock_Wall.GetComponent<TileObj>().AssingSprite(1);
+                    TileBlock_Wall.GetComponent<TileObj>().AssingSprite(6);
                 }
             }
         }
     }
+
+
 
     #endregion
 

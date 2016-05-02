@@ -8,6 +8,8 @@ public class TileObj : OverworldObj
     private SpriteRenderer spriteRenderer;
     private float scale = 32;
     public Texture2D SpriteSheet;
+    public enum tileType { floor, wall };
+    public tileType TileType;
 
     private Vector2 spriteIndex;
 
@@ -35,7 +37,6 @@ public class TileObj : OverworldObj
         Vector2 TileSize = new Vector2(scale, scale);
         sprite = Sprite.Create(SpriteSheet, new Rect(SprPos, TileSize), new Vector2(0,1), scale);
         spriteRenderer.sprite = sprite;
-        if (objName == "Wall") spriteRenderer.color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
     }
 
     private void SetSpriteIndex(int index)
@@ -108,10 +109,13 @@ public class TileObj : OverworldObj
                 spriteIndex = new Vector2(3, 3);
                 break;
 
-            default:
+
+
+            default: //If none found
                 spriteIndex = new Vector2(0, 0);
                 break;
         }
+        if (TileType == tileType.floor) spriteIndex.y += 4;
     }
 
 
